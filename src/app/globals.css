@@ -1,0 +1,51 @@
+:root {
+  --forest: #1a3a2a;
+  --forest-light: #2d5a3f;
+  --sage: #7a9e7e;
+  --sage-light: #b5ccb8;
+  --stone: #f5f0e8;
+  --stone-dark: #e8e0d0;
+  --warm-white: #faf8f4;
+  --river: #3d7c8c;
+  --river-light: #5ba3b5;
+  --bark: #6b4f3a;
+  --bark-light: #8c7058;
+  --charcoal: #2c2c2c;
+  --mist: #d4ddd6;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+
+  --nav-height: 72px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background-color: var(--warm-white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--forest);
+  line-height: 1.2;
+}
+
+a { transition: color 0.15s ease; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--river);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.blog-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26,58,42,0.08);
+}
