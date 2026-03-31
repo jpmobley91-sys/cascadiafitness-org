@@ -6,6 +6,7 @@ import Link from "next/link";
 const navLinks = [
   { href: "/nutrition", label: "Nutrition" },
   { href: "/exercise", label: "Exercise" },
+  { href: "/healthy-aging", label: "Healthy Aging" },
   { href: "/behavior-change", label: "Behavior Change" },
   { href: "/coaches", label: "Find a Coach" },
   { href: "/blog", label: "Research Blog" },
