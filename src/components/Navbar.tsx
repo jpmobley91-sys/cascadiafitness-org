@@ -12,6 +12,7 @@ const navLinks = [
   { href: "/longevity", label: "Longevity" },
   { href: "/healthy-aging", label: "Healthy Aging" },
   { href: "/behavior-change", label: "Behavior Change" },
+  { href: "/digital-health", label: "Digital Health" },
   { href: "/coaches", label: "Find a Coach" },
   { href: "/blog", label: "Research Blog" },
   { href: "/methodology", label: "Methodology" },
