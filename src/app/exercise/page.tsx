@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Exercise Research — CascadiaFitness.org",
+  title: "Exercise & Physical Activity — CascadiaFitness.org",
   description:
-    "Global exercise guidelines and resistance training evidence for adults over 50. Peer-reviewed research translated into practical guidance.",
+    "Fitness is the most powerful modifiable determinant of lifespan and healthspan. Evidence from 24 peer-reviewed studies on strength, cardio, and movement for adults over 40.",
 };
 
 /* ── Shared Styles ─────────────────────────────────────────────────────────── */
@@ -221,7 +221,7 @@ export default function ExercisePage() {
               marginBottom: 16,
             }}
           >
-            Research Theme &middot; 4 Top 25 Studies
+            Research Theme &middot; 5 Featured Studies
           </p>
           <h1
             style={{
@@ -243,10 +243,11 @@ export default function ExercisePage() {
               lineHeight: 1.65,
             }}
           >
-            The evidence is unambiguous: physical activity is the single most
-            powerful intervention for healthy aging. Here&apos;s what 24
-            studies — including the #1 ranked article in our entire
-            collection — say about how to move.
+            Fitness is the most powerful modifiable determinant of lifespan and
+            healthspan. Strength predicts survival better than muscle size. The
+            minimum effective dose is 15 minutes a day. And much of what we call
+            &ldquo;normal aging&rdquo; is actually the body&apos;s response to
+            decades of inactivity. Here&apos;s what the evidence says.
           </p>
         </div>
       </section>
@@ -257,196 +258,15 @@ export default function ExercisePage() {
           <h2 style={sectionHeadingStyle}>The Case for Movement</h2>
 
           <p style={bodyTextStyle}>
-            Being physically unfit carries a greater mortality risk than any
-            traditional cardiac risk factor — including smoking, diabetes, and
-            coronary artery disease. Mandsager et al. (2018), studying 122,007
-            patients, found that elite fitness was associated with an{" "}
-            <strong>80% reduction in mortality risk</strong> compared to the
-            least fit, with no observed upper limit of benefit.
+            Being physically unfit carries a greater mortality risk than
+            smoking, diabetes, or coronary artery disease. Mandsager et al.
+            (2018), studying 122,007 patients, found that elite fitness was
+            associated with an <strong>80% reduction in mortality risk</strong>{" "}
+            compared to the least fit — with no observed upper limit of benefit.
           </p>
 
           <p style={bodyTextStyle}>
-            Kokkinos et al. (2022) confirmed these findings across 750,302
-            veterans of all ages, races, and both sexes: the association between
-            cardiorespiratory fitness and mortality is inverse, independent, and
-            graded. Higher fitness consistently means lower risk, without a
-            plateau.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Harridge &amp; Lazarus (2017) argue that much of what we attribute
-            to &ldquo;aging&rdquo; is actually deconditioning. In one striking
-            example, just three weeks of bedrest produced physiological decline
-            comparable to 40 years of aging — but the effects were reversible
-            with training.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Lee et al. (2022), following 116,221 adults over 30 years, found
-            that maximum mortality benefit is achieved at roughly{" "}
-            <strong>150–300 minutes per week of vigorous activity</strong>.
-            Importantly, higher levels showed no harm — more is not dangerous,
-            it simply yields diminishing returns.
-          </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Mandsager et al.",
-                year: 2018,
-                title: "CRF and long-term mortality",
-                detail: "Cohort, N=122,007 — JAMA Network Open",
-              },
-              {
-                authors: "Kokkinos et al.",
-                year: 2022,
-                title: "CRF and mortality across age, race, sex",
-                detail: "Cohort, N=750,302 — JACC",
-              },
-              {
-                authors: "Lee et al.",
-                year: 2022,
-                title: "Long-term PA intensity and mortality",
-                detail: "Cohort, N=116,221 — Circulation",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* ── Section 2: What the Guidelines Recommend ── */}
-      <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
-        <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>What the Guidelines Recommend</h2>
-
-          <p style={bodyTextStyle}>
-            The 2025 ICFSR Global Consensus by Izquierdo et al. — the{" "}
-            <strong>#1 ranked article</strong> in our entire corpus —
-            recommends at least 150 minutes of moderate-intensity or 75 minutes
-            of vigorous-intensity aerobic activity per week, plus
-            muscle-strengthening activities on two or more days per week.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Exercise should be prescribed like medication: with a specific dose,
-            modality, and intensity tailored to the individual. Multicomponent
-            programs that combine strength, balance, and flexibility training
-            are the most effective approach for preventing falls and maintaining
-            functional capacity.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Progressive resistance training is specifically essential for
-            combating sarcopenia and frailty. The ICFSR 2021 guidelines
-            (Izquierdo et al.) go further, recommending that exercise can serve
-            as an alternative to potentially inappropriate medications for
-            depression and other conditions.
-          </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Izquierdo et al.",
-                year: 2025,
-                title: "Global consensus on exercise for healthy longevity",
-                detail: "Expert Consensus",
-                rank: 1,
-              },
-              {
-                authors: "Izquierdo et al.",
-                year: 2021,
-                title: "International exercise recommendations (ICFSR)",
-                detail: "Expert Consensus",
-                rank: 10,
-              },
-              {
-                authors: "US DHHS",
-                year: 2018,
-                title: "Physical Activity Guidelines for Americans, 2nd ed.",
-                detail: "Guideline",
-                rank: 16,
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* ── Section 3: Strength Matters More Than Size ── */}
-      <section style={sectionStyle}>
-        <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>
-            Strength Matters More Than Size
-          </h2>
-
-          <p style={bodyTextStyle}>
-            Newman et al. (2006), analyzing 2,292 adults aged 70–79 in the
-            Health ABC Study, found that muscle{" "}
-            <strong>strength — not muscle mass — predicted mortality</strong>.
-            The strength–mortality association was not explained by muscle size,
-            overturning the assumption that bigger muscles automatically mean
-            better outcomes.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Low grip strength is associated with a{" "}
-            <strong>72% higher risk of dementia</strong> and 87% higher dementia
-            mortality (Esteban-Cornejo et al., 2022, UK Biobank, N=466,788).
-            Bohannon (2019) found that grip strength predicts all-cause
-            mortality, falls, fractures, hospitalization, and cognitive decline.
-          </p>
-
-          <p style={bodyTextStyle}>
-            The combination of fitness and strength is especially powerful. Kim
-            et al. (2018), studying 70,913 UK Biobank participants, found that
-            combined high cardiorespiratory fitness and high grip strength
-            reduces all-cause mortality risk by{" "}
-            <strong>47%</strong> and CVD mortality by{" "}
-            <strong>69%</strong> compared to the least fit. Even among men with
-            hypertension, those in the highest third of muscular strength had
-            34% lower mortality risk (Artero et al., 2011).
-          </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Newman et al.",
-                year: 2006,
-                title:
-                  "Strength, not muscle mass, associated with mortality",
-                detail: "Cohort, N=2,292 — J Gerontology",
-              },
-              {
-                authors: "Esteban-Cornejo et al.",
-                year: 2022,
-                title: "Grip strength and dementia incidence",
-                detail: "Cohort, N=466,788 — UK Biobank",
-              },
-              {
-                authors: "Kim et al.",
-                year: 2018,
-                title: "CRF + muscle strength and mortality risk",
-                detail: "Cohort, N=70,913 — UK Biobank",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* ── Section 4: It's Never Too Late ── */}
-      <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
-        <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>It&apos;s Never Too Late</h2>
-
-          <p style={bodyTextStyle}>
-            Resistance exercise can literally reverse aging at the molecular
-            level. Melov et al. (2007) showed that six months of resistance
-            training reversed age-associated gene expression changes in skeletal
-            muscle, shifting transcriptional profiles toward those of younger
-            adults.
-          </p>
-
-          <p style={bodyTextStyle}>
-            The threshold for benefit is remarkably low. Wen et al. (2011),
+            The minimum effective dose is remarkably low. Wen et al. (2011),
             following 416,175 participants, found that as little as{" "}
             <strong>15 minutes of daily exercise</strong> reduces all-cause
             mortality by 14% and extends life expectancy by three years. Each
@@ -455,28 +275,32 @@ export default function ExercisePage() {
           </p>
 
           <p style={bodyTextStyle}>
-            Naci &amp; Ioannidis (2015), comparing exercise to drug
-            interventions across 305 RCTs, found that exercise was comparable to
-            medications for secondary prevention of heart disease and
-            prediabetes, and{" "}
+            Exercise matches drugs for secondary prevention of heart disease and
+            prediabetes. Naci &amp; Ioannidis (2015), comparing exercise to
+            pharmaceutical interventions across 305 RCTs, found exercise was
+            comparable to medications and{" "}
             <strong>more effective than anticoagulants after stroke</strong>.
-            Exercise is medicine — with evidence comparable to pharmaceutical
-            interventions.
+          </p>
+
+          <p style={bodyTextStyle}>
+            Much of what we call &ldquo;normal aging&rdquo; is actually
+            deconditioning. In one striking example, three weeks of bedrest
+            produced physiological decline comparable to 40 years of aging —
+            but the effects were reversible with training.
           </p>
 
           <StudyGrid
             studies={[
               {
-                authors: "Melov et al.",
-                year: 2007,
-                title:
-                  "Resistance exercise reverses aging in skeletal muscle",
-                detail: "Experimental — PLoS ONE",
+                authors: "Mandsager et al.",
+                year: 2018,
+                title: "CRF and long-term mortality: no upper limit of benefit",
+                detail: "Cohort, N=122,007 — JAMA Network Open",
               },
               {
                 authors: "Wen et al.",
                 year: 2011,
-                title: "Minimum PA for reduced mortality",
+                title: "15 min/day adds 3 years life expectancy",
                 detail: "Cohort, N=416,175 — The Lancet",
               },
               {
@@ -490,7 +314,154 @@ export default function ExercisePage() {
         </div>
       </section>
 
-      {/* ── Section 5: Newsletter CTA ── */}
+      {/* ── Section 2: Strength Is Survival ── */}
+      <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
+        <div style={innerStyle}>
+          <h2 style={sectionHeadingStyle}>Strength Is Survival</h2>
+
+          <p style={bodyTextStyle}>
+            Strength predicts survival better than muscle size. Newman et al.
+            (2006) analyzed 2,292 adults aged 70–79 and found that muscle{" "}
+            <strong>strength — not muscle mass — predicted mortality</strong>.
+            The strength–mortality association was not explained by muscle size.
+          </p>
+
+          <p style={bodyTextStyle}>
+            Grip strength is your longevity credit score. Bohannon (2019) found
+            that grip strength predicts all-cause mortality, falls, fractures,
+            hospitalization, and cognitive decline. Low grip strength is
+            associated with a <strong>72% higher risk of dementia</strong> and
+            87% higher dementia mortality.
+          </p>
+
+          <p style={bodyTextStyle}>
+            Resistance training can literally reverse aging at the molecular
+            level. Melov et al. (2007) showed that six months of resistance
+            training reversed age-associated gene expression changes in skeletal
+            muscle, shifting transcriptional profiles toward those of younger
+            adults.
+          </p>
+
+          <p style={bodyTextStyle}>
+            The combination of fitness and strength is especially powerful. Kim
+            et al. (2018) found that combined high cardiorespiratory fitness and
+            high grip strength reduces all-cause mortality by{" "}
+            <strong>47%</strong> and CVD mortality by <strong>69%</strong>.
+          </p>
+
+          <StudyGrid
+            studies={[
+              {
+                authors: "Newman et al.",
+                year: 2006,
+                title: "Strength, not muscle mass, associated with mortality",
+                detail: "Cohort, N=2,292 — J Gerontology",
+              },
+              {
+                authors: "Melov et al.",
+                year: 2007,
+                title: "Resistance exercise reverses aging gene expression",
+                detail: "Experimental — PLoS ONE",
+              },
+              {
+                authors: "Kim et al.",
+                year: 2018,
+                title: "CRF + muscle strength and mortality risk",
+                detail: "Cohort, N=70,913 — UK Biobank",
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* ── Section 3: Your Fitness Test Battery ── */}
+      <section style={sectionStyle}>
+        <div style={innerStyle}>
+          <h2 style={sectionHeadingStyle}>Your Fitness Test Battery</h2>
+
+          <p style={bodyTextStyle}>
+            The 10-second one-leg stance test predicts survival. Araujo et al.
+            (2022) found that inability to complete this simple test in
+            middle-aged and older adults was associated with significantly higher
+            all-cause mortality over 7 years of follow-up.
+          </p>
+
+          <p style={bodyTextStyle}>
+            VO2max — your maximum oxygen uptake — is the single best biomarker
+            of biological age. It declines approximately 10% per decade after
+            age 30 in sedentary individuals, but regular training can cut that
+            decline in half.
+          </p>
+
+          <p style={bodyTextStyle}>
+            Grip strength, walking speed (gait velocity above 1.0 m/s), and the
+            ability to rise from the floor without using your hands are simple,
+            self-administered tests that predict longevity better than most lab
+            work.
+          </p>
+
+          <StudyGrid
+            studies={[
+              {
+                authors: "Araujo et al.",
+                year: 2022,
+                title: "10-second one-leg stance predicts survival",
+                detail: "Cohort — British Journal of Sports Medicine",
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* ── Section 4: Frequently Asked Questions ── */}
+      <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
+        <div style={innerStyle}>
+          <h2 style={sectionHeadingStyle}>Frequently Asked Questions</h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            {[
+              {
+                q: "How much exercise do I actually need?",
+                a: "The steepest mortality reduction comes from moving at all — going from zero to 15 minutes per day. Maximum benefit is reached at roughly 150–300 minutes per week of moderate activity or 75–150 minutes of vigorous activity. Higher levels show no harm. More is not dangerous, it simply yields diminishing returns.",
+              },
+              {
+                q: "Is cardio or strength training more important?",
+                a: "Both, but strength training is dramatically undervalued. Cardiorespiratory fitness is the strongest predictor of all-cause mortality, but grip strength independently predicts mortality, dementia, falls, and hospitalization. The ideal program includes both. If forced to choose one, the answer depends on your current baseline — but most people over 40 are more deficient in strength than aerobic capacity.",
+              },
+              {
+                q: "Can I exercise too much?",
+                a: "The research has found no safe upper limit of exercise benefit at volumes up to 4–8 times the recommended guidelines. Elite fitness carries the lowest mortality risk of any group studied. Overtraining syndrome exists but is rare outside competitive athletics. For the vast majority of adults, the risk is too little exercise, not too much.",
+              },
+              {
+                q: "I'm 50 and haven't exercised in years. Where do I start?",
+                a: "With 15 minutes a day. The evidence shows that the largest mortality benefit comes from moving from inactive to minimally active. Walk. Then walk faster. Then add bodyweight exercises. Progressive resistance training can begin at any age with any baseline — Melov's research showed gene expression reversal even in adults who began strength training in their 60s and 70s.",
+              },
+              {
+                q: "What's the single best test of my fitness?",
+                a: "VO2max testing gives the most comprehensive picture, but it requires clinical equipment. For a practical self-assessment, try these three: stand on one leg for 10 seconds with eyes open, rise from the floor without using your hands or knees, and measure your walking speed over 4 meters. These simple tests predict longevity better than most lab work.",
+              },
+            ].map(({ q, a }) => (
+              <div key={q}>
+                <p
+                  style={{
+                    fontFamily: "var(--font-body)",
+                    fontSize: "1rem",
+                    fontWeight: 700,
+                    color: "var(--forest)",
+                    marginBottom: 8,
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {q}
+                </p>
+                <p style={{ ...bodyTextStyle, marginBottom: 0 }}>{a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Newsletter CTA ── */}
       <section style={{ padding: "80px 24px" }}>
         <div
           style={{
