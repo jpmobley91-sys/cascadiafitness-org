@@ -1,6 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 
-import ProteinCalculator from "@/components/ProteinCalculator";
+export const metadata: Metadata = {
+  title: "Nutrition & Dietary Strategies — CascadiaFitness.org",
+  description:
+    "Evidence-based protein targets, creatine supplementation, the Mediterranean dietary pattern, and the leucine threshold — peer-reviewed nutrition science for adults over 40.",
+};
 
 /* ── Shared Styles ─────────────────────────────────────────────────────────── */
 
@@ -28,7 +32,7 @@ const bodyTextStyle: React.CSSProperties = {
   marginBottom: 16,
 };
 
-/* ── Study Card Types ──────────────────────────────────────────────────────── */
+/* ── Study Card ────────────────────────────────────────────────────────────── */
 
 interface StudyCitation {
   authors: string;
@@ -131,6 +135,54 @@ function StudyGrid({ studies }: { studies: StudyCitation[] }) {
   );
 }
 
+/* ── Newsletter Form (client island) ───────────────────────────────────────── */
+
+function NewsletterForm() {
+  return (
+    <form
+      style={{
+        display: "flex",
+        gap: 10,
+        maxWidth: 440,
+        margin: "0 auto",
+      }}
+    >
+      <input
+        type="email"
+        placeholder="you@example.com"
+        aria-label="Email address"
+        style={{
+          flex: 1,
+          padding: "14px 16px",
+          borderRadius: 6,
+          border: "1px solid var(--stone-dark)",
+          fontSize: "0.95rem",
+          fontFamily: "var(--font-body)",
+          outline: "none",
+          backgroundColor: "white",
+        }}
+      />
+      <button
+        type="submit"
+        style={{
+          padding: "14px 24px",
+          backgroundColor: "var(--forest)",
+          color: "var(--warm-white)",
+          border: "none",
+          borderRadius: 6,
+          fontWeight: 600,
+          fontSize: "0.95rem",
+          cursor: "pointer",
+          fontFamily: "var(--font-body)",
+          whiteSpace: "nowrap",
+        }}
+      >
+        Subscribe
+      </button>
+    </form>
+  );
+}
+
 /* ── Page ───────────────────────────────────────────────────────────────────── */
 
 export default function NutritionPage() {
@@ -169,7 +221,7 @@ export default function NutritionPage() {
               marginBottom: 16,
             }}
           >
-            Research Theme &middot; 6 Top 25 Studies
+            Research Theme &middot; Strongest Evidence Base
           </p>
           <h1
             style={{
@@ -180,7 +232,7 @@ export default function NutritionPage() {
               color: "var(--forest)",
             }}
           >
-            Nutrition After 50
+            Nutrition &amp; Dietary Strategies
           </h1>
           <p
             style={{
@@ -191,225 +243,137 @@ export default function NutritionPage() {
               lineHeight: 1.65,
             }}
           >
-            What does the peer-reviewed evidence actually say about protein, diet
-            quality, and supplementation for adults over 50? We distilled 28
-            studies — including 6 in our Top 25 — into clear, actionable
-            guidance.
+            The protein target most adults over 40 need is roughly double the
+            official recommendation. Creatine monohydrate is the most underused
+            supplement in aging. And protein without exercise is like fuel
+            without an engine. Here&apos;s what 49 peer-reviewed articles say
+            about eating for longevity.
           </p>
         </div>
       </section>
 
-      {/* ── Section 1: The Protein Question ── */}
+      {/* ── Section 1: The Protein Imperative ── */}
       <section style={sectionStyle}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>The Protein Question</h2>
+          <h2 style={sectionHeadingStyle}>The Protein Imperative</h2>
 
           <p style={bodyTextStyle}>
-            The current Recommended Dietary Allowance (RDA) of 0.8 g/kg/day was
-            designed to prevent deficiency — not to optimize muscle health in
-            aging adults. Both the PROT-AGE Study Group and the European Society
-            for Clinical Nutrition and Metabolism (ESPEN) now recommend{" "}
-            <strong>1.0–1.2 g/kg/day</strong> for healthy adults over 65, rising
-            to <strong>1.2–1.5 g/kg/day</strong> for those who are physically
-            active or managing chronic conditions.
+            The official RDA for protein (0.8 g/kg/day) was established to
+            prevent deficiency — not to optimize health, preserve muscle, or
+            support aging. For adults over 40, the evidence supports{" "}
+            <strong>1.2–2.0 g/kg/day</strong>, roughly double the standard
+            recommendation.
           </p>
 
           <p style={bodyTextStyle}>
-            A 2025 randomized controlled trial by Church et al. found that
-            within a 2-meal eating pattern, consuming 1.5 g/kg/day produced
-            significantly more positive whole-body net protein balance than
-            either 0.8 or 1.1 g/kg/day — evidence that the current RDA may
-            leave older adults in a suboptimal protein state.
+            Baum et al. (2016) established this range based on nitrogen balance
+            studies, muscle protein synthesis research, and clinical outcomes in
+            older adults. The International Society of Sports Nutrition position
+            stands in agreement.
           </p>
 
           <p style={bodyTextStyle}>
-            The Health ABC Study (Houston et al., 2008), following 2,066 older
-            adults over three years, found that participants in the highest
-            protein intake quintile lost{" "}
-            <strong>40% less lean mass</strong> than those in the lowest
-            quintile. Despite this evidence, roughly 30% of men and 50% of women
-            over 71 in the United States consume inadequate protein (Harris et
-            al., 2025).
+            The leucine threshold is why meal distribution matters. Each meal
+            needs approximately <strong>2.5–2.8 grams of leucine</strong> — a
+            specific amino acid — to trigger muscle protein synthesis. This means
+            three meals with 30–40 grams of protein each outperforms the common
+            pattern of a low-protein breakfast, moderate lunch, and large dinner.
           </p>
 
           <StudyGrid
             studies={[
               {
-                authors: "Morgan et al.",
-                year: 2025,
-                title:
-                  "Protein recommendations for healthy muscle ageing",
-                detail: "Expert Consensus",
-                rank: 2,
+                authors: "Baum et al.",
+                year: 2016,
+                title: "Optimal protein intake for older adults: 1.2-2.0 g/kg/day",
+                detail: "Position Statement — JAND",
               },
               {
-                authors: "Church et al.",
-                year: 2025,
-                title:
-                  "Effect of 3 different daily protein intakes on protein turnover",
-                detail: "RCT",
-                rank: 5,
-              },
-              {
-                authors: "Houston et al.",
-                year: 2008,
-                title:
-                  "Dietary protein intake and lean mass change in older adults",
-                detail: "Cohort, N=2,066",
+                authors: "Phillips et al.",
+                year: 2016,
+                title: "Protein requirements beyond the RDA for aging adults",
+                detail: "Review — Nutrients",
               },
             ]}
           />
         </div>
       </section>
 
-      {/* ── Section 2: Per-Meal Protein Targets ── */}
+      {/* ── Section 2: Protein Without Exercise Is Fuel Without an Engine ── */}
       <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>Per-Meal Protein Targets</h2>
+          <h2 style={sectionHeadingStyle}>
+            Protein Without Exercise Is Fuel Without an Engine
+          </h2>
 
           <p style={bodyTextStyle}>
-            Total daily protein matters, but so does how you distribute it
-            across meals. Older adults need at least{" "}
-            <strong>25–30 g of protein per meal</strong> (roughly 0.4 g/kg/meal)
-            to maximally stimulate muscle protein synthesis (MPS).
+            Zhang et al. (2025) conducted a meta-analysis that delivered a
+            sobering finding: protein supplementation alone, without concurrent
+            resistance exercise, produces negligible effects on lean mass and
+            strength in older adults.
           </p>
 
           <p style={bodyTextStyle}>
-            The MPS response has a finite duration of about 2–3 hours
-            post-meal, which means a single large dinner is suboptimal compared
-            to spreading protein intake evenly. Research by Layman (2024) shows
-            that meals need at least <strong>2.8 g of leucine</strong> — found
-            in approximately 30 g of high-quality protein — to reliably trigger
-            MPS in adults over 60.
+            This means protein is necessary but not sufficient. The mechanical
+            stimulus of resistance training activates the muscle protein synthesis
+            pathways that dietary protein fuels. Without the signal, the fuel has
+            nowhere to go.
           </p>
 
           <p style={bodyTextStyle}>
-            Hayashi et al. (2020) found that the number of meals containing at
-            least 20 g of protein was significantly associated with greater lean
-            mass in frail elderly participants. Schoenfeld &amp; Aragon (2018)
-            recommend targeting 0.4 g/kg/meal across at least four meals daily
-            for maximum anabolic benefit.
+            The practical implication: any nutrition strategy for aging adults
+            must be paired with a strength training program. Recommending higher
+            protein intake without prescribing exercise is incomplete at best and
+            misleading at worst.
           </p>
 
           <StudyGrid
             studies={[
               {
-                authors: "Layman",
-                year: 2024,
+                authors: "Zhang et al.",
+                year: 2025,
                 title:
-                  "Impacts of protein quantity and distribution on body composition",
-                detail: "Review",
-              },
-              {
-                authors: "Hayashi et al.",
-                year: 2020,
-                title:
-                  "Number of high-protein meals correlates with muscle mass",
-                detail: "Cross-sectional, N=157",
-              },
-              {
-                authors: "Schoenfeld & Aragon",
-                year: 2018,
-                title:
-                  "How much protein can the body use in a single meal",
-                detail: "Review",
+                  "Protein supplementation without exercise: negligible lean mass effects",
+                detail: "Meta-analysis — Clinical Nutrition",
               },
             ]}
           />
         </div>
       </section>
 
-      {/* ── Section 3: Protein Calculator ── */}
+      {/* ── Section 3: Creatine: Pennies a Day, Decades of Benefit ── */}
       <section style={sectionStyle}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>Protein Calculator</h2>
-          <p style={{ ...bodyTextStyle, marginBottom: 32 }}>
-            Use this calculator to estimate your daily protein target based on
-            current research. Enter your details below.
-          </p>
-          <ProteinCalculator />
-        </div>
-      </section>
-
-      {/* ── Section 4: Beyond Protein — Diet Quality ── */}
-      <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
-        <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>Beyond Protein: Diet Quality</h2>
+          <h2 style={sectionHeadingStyle}>
+            Creatine: Pennies a Day, Decades of Benefit
+          </h2>
 
           <p style={bodyTextStyle}>
-            The Mediterranean diet is the most-studied dietary pattern for
-            cardiovascular and cognitive health in older adults. The landmark
-            PREDIMED trial (Estruch et al., 2013), enrolling 7,447
-            participants, demonstrated a{" "}
-            <strong>30% reduction in major cardiovascular events</strong> with a
-            Mediterranean diet compared to a control diet over approximately
-            five years.
+            Creatine monohydrate is the most studied ergogenic supplement in
+            history, with over 500 peer-reviewed studies and a safety profile
+            spanning decades. Yet it remains dramatically underused in aging
+            populations where it may matter most.
           </p>
 
           <p style={bodyTextStyle}>
-            A related randomized controlled trial by Valls-Pedret et al. (2015)
-            found that a Mediterranean diet supplemented with extra-virgin olive
-            oil or mixed nuts countered age-related cognitive decline over four
-            or more years in 447 participants.
+            Davies et al. (2024) conducted a meta-analysis showing creatine
+            supplementation combined with resistance training added an average of{" "}
+            <strong>1.08 kg of lean mass</strong> compared to resistance training
+            alone. For older adults fighting sarcopenia, that is a meaningful
+            clinical difference.
           </p>
 
           <p style={bodyTextStyle}>
-            Diet composition affects health both directly and through the gut
-            microbiota (Perler et al., 2023). A Cochrane review by Abdelhamid
-            et al. (2018), encompassing 49 RCTs, concluded that increasing
-            polyunsaturated fatty acid intake probably slightly reduces coronary
-            heart disease and cardiovascular events.
-          </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Estruch et al.",
-                year: 2013,
-                title:
-                  "Primary prevention of CVD with Mediterranean diet",
-                detail: "RCT, N=7,447 — NEJM",
-              },
-              {
-                authors: "Valls-Pedret et al.",
-                year: 2015,
-                title: "Mediterranean diet and cognitive decline",
-                detail: "RCT, N=447 — JAMA Internal Medicine",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* ── Section 5: Creatine and Supplementation ── */}
-      <section style={sectionStyle}>
-        <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>Creatine and Supplementation</h2>
-
-          <p style={bodyTextStyle}>
-            Creatine monohydrate, when combined with resistance training,
-            increases lean body mass by approximately 1 kg and improves
-            upper-body strength and grip strength in older adults. About{" "}
-            <strong>70% of adults over 65</strong> consume less than the
-            recommended creatine intake.
+            Beyond muscle, creatine is emerging as a cognitive support tool. It
+            serves as a phosphocreatine energy buffer in the brain, and
+            supplementation has shown benefits for short-term memory and
+            reasoning, particularly in adults over 60 and during sleep
+            deprivation.
           </p>
 
           <p style={bodyTextStyle}>
-            A 2024 meta-analysis by Davies et al., pooling 33 randomized
-            controlled trials, found that creatine supplementation improved
-            sit-to-stand performance (SMD 0.51) and increased lean tissue mass
-            by 1.08 kg.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Context matters: the global supplement market exceeds $200 billion,
-            and many products lack strong evidence (Khubchandani &amp; Batra,
-            2024). Creatine monohydrate stands out as one of the few supplements
-            with robust, replicated research support.{" "}
-            <strong>
-              Always consult a healthcare provider before starting any
-              supplement.
-            </strong>
+            Does creatine cause hair loss? No. The first randomized controlled
+            trial to test this directly found no effect on hair loss biomarkers.
           </p>
 
           <StudyGrid
@@ -417,24 +381,117 @@ export default function NutritionPage() {
               {
                 authors: "Davies et al.",
                 year: 2024,
-                title:
-                  "Creatine supplementation for optimization of physical function",
-                detail: "SR/MA, 33 RCTs",
-                rank: 24,
+                title: "Creatine + resistance training: +1.08 kg lean mass",
+                detail: "Meta-analysis",
               },
               {
-                authors: "Candow et al.",
-                year: 2025,
-                title:
-                  "Creatine monohydrate supplementation for older adults",
-                detail: "Review",
+                authors: "Antonio et al.",
+                year: 2021,
+                title: "ISSN position stand: creatine supplementation safety",
+                detail: "Position Statement — JISSN",
               },
             ]}
           />
         </div>
       </section>
 
-      {/* ── Section 6: Newsletter CTA ── */}
+      {/* ── Section 4: The Mediterranean Operating System ── */}
+      <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
+        <div style={innerStyle}>
+          <h2 style={sectionHeadingStyle}>
+            The Mediterranean Operating System
+          </h2>
+
+          <p style={bodyTextStyle}>
+            The Mediterranean dietary pattern is the most evidence-supported
+            dietary approach for longevity. The PREDIMED trial — one of the
+            largest and most rigorous nutrition RCTs ever conducted — demonstrated
+            a <strong>30% reduction in cardiovascular events</strong> among
+            high-risk adults.
+          </p>
+
+          <p style={bodyTextStyle}>
+            Estruch et al. (2013) randomized 7,447 participants to a
+            Mediterranean diet supplemented with either extra-virgin olive oil or
+            mixed nuts versus a control diet. Both Mediterranean groups showed
+            significant cardiovascular benefit, with the trial stopped early due
+            to the clear advantage of the intervention groups.
+          </p>
+
+          <p style={bodyTextStyle}>
+            The Mediterranean pattern works not because of any single food but
+            because of the overall dietary system: high intake of vegetables,
+            fruits, legumes, nuts, whole grains, fish, and olive oil, with
+            moderate wine consumption and limited red meat and processed food. It
+            is an anti-inflammatory dietary pattern that complements the exercise
+            and sleep pillars.
+          </p>
+
+          <StudyGrid
+            studies={[
+              {
+                authors: "Estruch et al.",
+                year: 2013,
+                title: "PREDIMED trial: Mediterranean diet and CVD prevention",
+                detail: "RCT, N=7,447 — NEJM",
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* ── Section 5: Frequently Asked Questions ── */}
+      <section style={sectionStyle}>
+        <div style={innerStyle}>
+          <h2 style={sectionHeadingStyle}>Frequently Asked Questions</h2>
+
+          {[
+            {
+              q: "How much protein do I really need?",
+              a: "If you are over 40, the evidence supports 1.2–1.6 g/kg of body weight per day for most people, and up to 2.0 g/kg/day if you are actively strength training. For a 170-pound person, that is roughly 90–120 grams per day, distributed across three meals of 30–40 grams each to hit the leucine threshold at every meal.",
+            },
+            {
+              q: "Is plant protein as good as animal protein?",
+              a: "Plant proteins are lower in leucine and less bioavailable than animal proteins, meaning you need a higher total intake to achieve the same muscle protein synthesis response. This is manageable with planning — combining legumes with grains, using soy-based proteins, and slightly increasing total protein targets. It is not a barrier, but it does require intentionality.",
+            },
+            {
+              q: "Should I take creatine if I'm over 50?",
+              a: "Especially if you are over 50. Creatine monohydrate is inexpensive, extensively studied, and safe. Combined with resistance training, it adds meaningful lean mass. It also shows emerging cognitive benefits for older adults. The dose is 3–5 grams per day, every day — no loading phase needed. Powder form mixed in water is the most cost-effective approach.",
+            },
+            {
+              q: "What is the leucine threshold and why does it matter?",
+              a: "Leucine is the amino acid that triggers muscle protein synthesis. Each meal needs approximately 2.5–2.8 grams of leucine to flip this switch. If you spread your protein too thin across many small meals or snacks, none of them may reach the threshold. This is why three substantial protein-rich meals outperform grazing.",
+            },
+            {
+              q: "Does creatine cause hair loss?",
+              a: "No. This myth originated from a single 2009 study that measured DHT levels but did not actually measure hair loss. The first randomized controlled trial designed to directly test the hair loss question found no effect. The International Society of Sports Nutrition considers creatine safe for long-term use.",
+            },
+          ].map(({ q, a }) => (
+            <div
+              key={q}
+              style={{
+                borderTop: "1px solid var(--stone-dark)",
+                paddingTop: 24,
+                marginBottom: 24,
+              }}
+            >
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: "1.05rem",
+                  color: "var(--forest)",
+                  marginBottom: 10,
+                }}
+              >
+                {q}
+              </h3>
+              <p style={{ ...bodyTextStyle, marginBottom: 0 }}>{a}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Newsletter CTA ── */}
       <section style={{ padding: "80px 24px" }}>
         <div
           style={{
@@ -464,48 +521,7 @@ export default function NutritionPage() {
             New nutrition research, summarized in plain language, delivered every
             week.
           </p>
-          <form
-            style={{
-              display: "flex",
-              gap: 10,
-              maxWidth: 440,
-              margin: "0 auto",
-            }}
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              placeholder="you@example.com"
-              aria-label="Email address"
-              style={{
-                flex: 1,
-                padding: "14px 16px",
-                borderRadius: 6,
-                border: "1px solid var(--stone-dark)",
-                fontSize: "0.95rem",
-                fontFamily: "var(--font-body)",
-                outline: "none",
-                backgroundColor: "white",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: "14px 24px",
-                backgroundColor: "var(--forest)",
-                color: "var(--warm-white)",
-                border: "none",
-                borderRadius: 6,
-                fontWeight: 600,
-                fontSize: "0.95rem",
-                cursor: "pointer",
-                fontFamily: "var(--font-body)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Subscribe
-            </button>
-          </form>
+          <NewsletterForm />
           <p
             style={{
               fontSize: "0.78rem",
