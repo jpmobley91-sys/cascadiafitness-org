@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/nutrition", label: "Nutrition" },
   { href: "/exercise", label: "Exercise" },
   { href: "/cognitive-health", label: "Cognitive Health" },
+  { href: "/weight-management", label: "Weight Management" },
   { href: "/longevity", label: "Longevity" },
   { href: "/healthy-aging", label: "Healthy Aging" },
   { href: "/behavior-change", label: "Behavior Change" },
