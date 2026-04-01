@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Behavior Change Research — CascadiaFitness.org",
+  title: "Behavior Change & Motivation — CascadiaFitness.org",
   description:
-    "Evidence-based behavior change strategies for lasting health habits. Motivational interviewing, social accountability, and what 9 studies say about making changes that stick.",
+    "Why willpower fails, what actually sustains behavior change, the 12-month cliff, and evidence-based strategies for building health habits that last.",
 };
 
 /* ── Shared Styles ─────────────────────────────────────────────────────────── */
@@ -135,7 +135,7 @@ function StudyGrid({ studies }: { studies: StudyCitation[] }) {
   );
 }
 
-/* ── Newsletter Form ───────────────────────────────────────────────────────── */
+/* ── Newsletter Form (client island) ───────────────────────────────────────── */
 
 function NewsletterForm() {
   return (
@@ -221,7 +221,7 @@ export default function BehaviorChangePage() {
               marginBottom: 16,
             }}
           >
-            Research Theme &middot; 3 Top 25 Studies
+            Research Theme
           </p>
           <h1
             style={{
@@ -232,7 +232,7 @@ export default function BehaviorChangePage() {
               color: "var(--forest)",
             }}
           >
-            Behavior Change
+            Behavior Change &amp; Motivation
           </h1>
           <p
             style={{
@@ -243,237 +243,189 @@ export default function BehaviorChangePage() {
               lineHeight: 1.65,
             }}
           >
-            Knowing what to do is rarely the problem. The research on lasting
-            health behavior change is clear: it&apos;s not about willpower
-            &mdash; it&apos;s about strategy. Here&apos;s what 9 studies say
-            about making changes that actually stick.
+            Sustainable behavior change is a systems design problem, not a
+            willpower problem. Every behavior change intervention studied loses
+            its effect within 12&ndash;24 months. The science is not about
+            finding more motivation &mdash; it&apos;s about designing for
+            renewal. Here&apos;s what the evidence says.
           </p>
         </div>
       </section>
 
-      {/* ── Section 1: Interpersonal Strategies Beat Willpower ── */}
+      {/* ── Section 1: It's Not a Willpower Problem ── */}
       <section style={sectionStyle}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>
-            Interpersonal Strategies Beat Willpower
-          </h2>
+          <h2 style={sectionHeadingStyle}>It&apos;s Not a Willpower Problem</h2>
 
           <p style={bodyTextStyle}>
-            The highest-ranked behavior change study in our corpus is a 2x2
-            factorial RCT by McMahon et al. (2024, JAMA Network Open, N=309
-            adults aged 70+). The question: what drives lasting physical
-            activity change &mdash; personal strategies or social ones?
+            The most common explanation for failed health behavior is lack of
+            motivation or discipline. The research says otherwise. Behavior
+            change fails because of poorly designed systems, not weak
+            individuals.
           </p>
 
           <p style={bodyTextStyle}>
-            The answer was clear. Interpersonal strategies &mdash; partnered
-            activities, group walks, social accountability check-ins &mdash;
-            produced a significant increase of{" "}
-            <strong>27.1 minutes/day of total activity</strong> at 1 week,
-            sustained through 12 months. Surprisingly, intrapersonal strategies
-            (goal setting, self-monitoring, action planning) showed no
-            significant independent effect on physical activity when used alone.
+            60% of people prescribed exercise are not ready to exercise. This is
+            not resistance &mdash; it is a mismatch between the intervention and
+            the person&apos;s stage of change. The Transtheoretical Model
+            identifies five stages (precontemplation, contemplation, preparation,
+            action, maintenance), and most health advice assumes everyone is in
+            the action stage.
           </p>
 
           <p style={bodyTextStyle}>
-            The combination of interpersonal and intrapersonal strategies did
-            not produce additive effects &mdash; social connection was the
-            driver. If you want to move more, find someone to move with. The
-            research suggests accountability and social connection matter more
-            than self-tracking.
+            Starting where you are &mdash; not where you think you should be
+            &mdash; is not a consolation. It is the evidence-based approach.
+            Interventions matched to a person&apos;s readiness stage produce
+            significantly better outcomes than one-size-fits-all prescriptions.
           </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "McMahon et al.",
-                year: 2024,
-                title:
-                  "Intrapersonal and interpersonal behavior change strategies for PA",
-                detail: "2x2 Factorial RCT, N=309 — JAMA Network Open",
-                rank: 4,
-              },
-            ]}
-          />
         </div>
       </section>
 
-      {/* ── Section 2: Which Behavior Change Techniques Work? ── */}
+      {/* ── Section 2: The Most Powerful Lever: Another Person ── */}
       <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
         <div style={innerStyle}>
           <h2 style={sectionHeadingStyle}>
-            Which Behavior Change Techniques Work?
+            The Most Powerful Lever: Another Person
           </h2>
 
           <p style={bodyTextStyle}>
-            Ahmed et al. (2024) systematically reviewed 12 RCTs targeting
-            adults aged 50&ndash;70 and identified 13 distinct behavior change
-            techniques across 7 intervention components. The most effective
-            BCTs: goal setting, self-monitoring, and feedback on behavior.
-            Action planning and problem solving were linked to sustained change.
+            The single most powerful predictor of sustained behavior change is
+            social accountability. Having another person who expects you to show
+            up &mdash; a coach, a workout partner, a group &mdash; outperforms
+            every individual motivation strategy studied.
           </p>
 
           <p style={bodyTextStyle}>
-            Interventions combining multiple BCTs showed stronger effects than
-            single-technique approaches. Notably, all intervention components
-            except social connectedness improved physical activity outcomes in
-            this review &mdash; an interesting contrast with McMahon&apos;s
-            finding that interpersonal strategies were the key driver in adults
-            70+. Age and context may matter.
+            This is not simply peer pressure. Social support provides three
+            mechanisms that individual willpower cannot: external accountability
+            (someone notices when you don&apos;t show up), identity
+            reinforcement (you become someone who exercises), and emotional
+            regulation (social connection buffers the stress that derails health
+            behaviors).
           </p>
 
           <p style={bodyTextStyle}>
-            Gilchrist et al. (2024) also confirmed that multicomponent BCT
-            interventions are more effective than single-technique approaches in
-            older adult physical activity programs.
+            The research on exercise partners is unambiguous. When asked whether
+            it is better to exercise alone or with someone, the answer is with
+            someone &mdash; across every population, every age group, and every
+            outcome measured.
           </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Ahmed et al.",
-                year: 2024,
-                title: "BCTs for PA in adults 50–70",
-                detail: "Systematic Review, 12 RCTs — J Aging & Physical Activity",
-              },
-              {
-                authors: "Gilchrist et al.",
-                year: 2024,
-                title: "BCTs in PA programs for older adults",
-                detail: "Systematic Review",
-                rank: 14,
-              },
-            ]}
-          />
         </div>
       </section>
 
-      {/* ── Section 3: Motivational Interviewing ── */}
+      {/* ── Section 3: The 12-Month Cliff ── */}
       <section style={sectionStyle}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>
-            Motivational Interviewing: What the Evidence Shows
-          </h2>
+          <h2 style={sectionHeadingStyle}>The 12-Month Cliff</h2>
 
           <p style={bodyTextStyle}>
-            Motivational interviewing (MI) is one of the most studied
-            approaches to health behavior change. Zhu et al. (2024, BMJ)
-            conducted a systematic review and meta-analysis that is the #6
-            ranked article in our entire corpus.
+            Every behavior change intervention studied shows declining effect
+            over time. Most programs produce strong results at 3&ndash;6 months,
+            modest results at 12 months, and minimal residual effect at 24
+            months. This pattern is so consistent it should be considered a
+            feature of behavior change, not a failure of any specific program.
           </p>
 
           <p style={bodyTextStyle}>
-            Their finding: MI is effective at increasing physical activity,
-            though effect sizes vary by delivery method and population. MI works
-            by supporting people&apos;s intrinsic motivation rather than
-            prescribing behavior &mdash; it&apos;s collaborative, not
-            directive.
+            The implication is profound: no single intervention will sustain you
+            for life. Health behavior requires periodic renewal &mdash; new
+            programs, new partners, new challenges, new environments. Designing
+            for this reality, rather than hoping it won&apos;t apply to you, is
+            the key to long-term success.
           </p>
 
           <p style={bodyTextStyle}>
-            This maps directly to NBHWC Competency 2.3 (Motivational
-            Interviewing), making it foundational for health coaching practice.
+            The coaching model addresses this directly. The evidence-based
+            coaching engagement of 12&ndash;15 sessions over 7&ndash;9 months is
+            not designed to create permanent change in one cycle. It is designed
+            to build the self-regulation skills and self-efficacy that allow you
+            to navigate subsequent cycles of renewal independently.
           </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Zhu et al.",
-                year: 2024,
-                title: "MI effectiveness on physical activity",
-                detail: "SR/Meta-analysis — BMJ",
-                rank: 6,
-              },
-            ]}
-          />
         </div>
       </section>
 
-      {/* ── Section 4: The Long Game ── */}
+      {/* ── Section 4: Stress Regulation Is a Prerequisite ── */}
       <section style={{ ...sectionStyle, backgroundColor: "var(--stone)" }}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>The Long Game: What Lasts?</h2>
+          <h2 style={sectionHeadingStyle}>
+            Stress Regulation Is a Prerequisite
+          </h2>
 
           <p style={bodyTextStyle}>
-            Hobbs et al. (2013) conducted a meta-analysis of 21 trials (10,519
-            participants) looking at long-term behavioral intervention outcomes
-            in adults aged 55&ndash;70.
+            Stress regulation is not a nice-to-have &mdash; it is a
+            prerequisite for every other behavior change. Chronic stress impairs
+            executive function, depletes the cognitive resources needed for
+            self-regulation, drives compensatory eating, disrupts sleep, and
+            reduces exercise adherence.
           </p>
 
           <p style={bodyTextStyle}>
-            At 12 months: step count increased by approximately{" "}
-            <strong>2,197 extra steps per day</strong> (SMD 1.08). Physical
-            activity duration showed a small but significant effect. At 24
-            months: no significant effects were maintained for any physical
-            activity outcome.
+            The research shows that addressing stress management before or
+            alongside health behavior goals produces better outcomes than
+            ignoring stress and focusing only on diet and exercise. This is why
+            coaching protocols that begin with stress and sleep assessment
+            outperform those that jump straight to nutrition and exercise
+            targets.
           </p>
 
           <p style={bodyTextStyle}>
-            This is an honest finding: most behavioral interventions produce
-            gains that fade after the first year without ongoing support.
-            Tailored interventions with personalized goals and
-            pedometers/self-monitoring showed stronger effects. The implication
-            is clear: behavior change programs need built-in maintenance
-            strategies. A 12-week program isn&apos;t enough &mdash; ongoing
-            structure and support matter.
+            Practical stress regulation does not require meditation retreats or
+            major life changes. Evidence-based strategies include brief breathing
+            protocols, walking in nature, social connection, and consistent sleep
+            schedules &mdash; interventions that themselves build toward other
+            health behaviors.
           </p>
-
-          <StudyGrid
-            studies={[
-              {
-                authors: "Hobbs et al.",
-                year: 2013,
-                title:
-                  "Behavioral interventions for PA at 12–36 months",
-                detail: "SR/Meta-analysis, 21 trials, N=10,519 — BMC Medicine",
-              },
-            ]}
-          />
         </div>
       </section>
 
-      {/* ── Section 5: Nature and Stress ── */}
+      {/* ── Section 5: FAQ ── */}
       <section style={sectionStyle}>
         <div style={innerStyle}>
-          <h2 style={sectionHeadingStyle}>Nature and Stress</h2>
+          <h2 style={sectionHeadingStyle}>Frequently Asked Questions</h2>
 
-          <p style={bodyTextStyle}>
-            Behavior change isn&apos;t only about exercise habits &mdash;
-            stress regulation plays a role in overall wellness. Sudimac et al.
-            (2022) used fMRI to measure brain activity before and after a
-            60-minute walk. The nature walk group showed significantly{" "}
-            <strong>decreased amygdala activity</strong> (the brain&apos;s
-            stress response center) compared to the urban walk group.
-          </p>
-
-          <p style={bodyTextStyle}>
-            The effect was observed in both hemispheres and specifically during
-            a social stress task. Interestingly, self-reported stress measures
-            did not differ between groups &mdash; the neural changes occurred
-            below conscious awareness.
-          </p>
-
-          <p style={bodyTextStyle}>
-            Practical takeaway: walking in nature may help regulate stress at a
-            neurobiological level, even when you don&apos;t &ldquo;feel&rdquo;
-            the difference.
-          </p>
-
-          <StudyGrid
-            studies={[
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            {[
               {
-                authors: "Sudimac et al.",
-                year: 2022,
-                title:
-                  "Amygdala activity decreases after one-hour nature walk",
-                detail: "fMRI Study, N=63 — Molecular Psychiatry",
+                q: "Why can\u2019t I stick with exercise or diet programs?",
+                a: "Because you are fighting a systems problem with individual willpower. The research shows that sustained behavior change requires environmental design, social accountability, stress regulation, and periodic renewal. It is not about trying harder \u2014 it is about building better support structures.",
               },
-            ]}
-          />
+              {
+                q: "How do I find motivation when I don\u2019t feel like it?",
+                a: "You don\u2019t. Motivation is not a prerequisite for action \u2014 it is often a consequence of it. The evidence-based approach is to reduce the friction of starting (lay out workout clothes the night before, schedule exercise like an appointment) and build social accountability (a partner, a coach, a class). Motivation follows action more reliably than action follows motivation.",
+              },
+              {
+                q: "Is it better to exercise alone or with someone?",
+                a: "With someone, unambiguously. Every study comparing solo versus social exercise shows better adherence, better outcomes, and more sustained behavior change when another person is involved. This includes formal partners, group classes, coaching relationships, and even virtual accountability partners.",
+              },
+              {
+                q: "What is motivational interviewing and how does it work?",
+                a: "Motivational interviewing is a collaborative conversation technique that helps people explore and resolve ambivalence about behavior change. Rather than telling you what to do, a skilled practitioner asks open-ended questions, reflects back what you say, and helps you articulate your own reasons for change. It is the foundational communication method used by board-certified health coaches.",
+              },
+              {
+                q: "Why does every program work for a year and then stop?",
+                a: "Because the effect of any behavior change intervention naturally declines over 12\u201324 months. This is not a flaw in any specific program \u2014 it is a consistent finding across all interventions studied. The solution is designing for renewal: planning new challenges, new environments, and new social supports before the current program loses its effect. Coaching builds the self-regulation skills that make this ongoing renewal possible.",
+              },
+            ].map(({ q, a }) => (
+              <div key={q}>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "1.1rem",
+                    color: "var(--forest)",
+                    marginBottom: 10,
+                  }}
+                >
+                  {q}
+                </h3>
+                <p style={{ ...bodyTextStyle, marginBottom: 0 }}>{a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── Section 6: Newsletter CTA ── */}
+      {/* ── Newsletter CTA ── */}
       <section style={{ padding: "80px 24px" }}>
         <div
           style={{
@@ -500,8 +452,8 @@ export default function BehaviorChangePage() {
               lineHeight: 1.6,
             }}
           >
-            Behavior change research, summarized in plain language, delivered
-            every week.
+            New behavior change research, summarized in plain language,
+            delivered every week.
           </p>
           <NewsletterForm />
           <p
