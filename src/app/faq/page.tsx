@@ -351,12 +351,13 @@ export default function FAQPage() {
         return true;
       })
       .map((theme) => {
-        const questions = normalizedSearch
-          ? theme.questions.filter(
-              (item) =>
-                item.q.toLowerCase().includes(normalizedSearch) ||
-                item.a.toLowerCase().includes(normalizedSearch)
-            )
+        const searchWords = normalizedSearch ? normalizedSearch.split(/\s+/).filter(Boolean) : [];
+        const questions = searchWords.length
+          ? theme.questions.filter((item) => {
+              const q = item.q.toLowerCase();
+              const a = item.a.toLowerCase();
+              return searchWords.some((word) => q.includes(word) || a.includes(word));
+            })
           : theme.questions;
         return { ...theme, questions };
       })
