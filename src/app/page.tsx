@@ -66,7 +66,7 @@ export default function Home() {
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
               <Link
-                href="#tools"
+                href="/blog"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -81,7 +81,7 @@ export default function Home() {
                   fontFamily: "var(--font-body)",
                 }}
               >
-                Explore All Topics →
+                Explore →
               </Link>
               <Link
                 href="/coaches"
@@ -112,30 +112,30 @@ export default function Home() {
                 background: "var(--warm-white)",
                 border: "1.5px solid var(--stone-dark)",
                 borderRadius: 12,
-                padding: "28px 24px",
+                padding: 32,
               }}
             >
               <h2
                 style={{
                   fontFamily: "var(--font-display)",
-                  fontSize: "1.25rem",
+                  fontSize: "clamp(1.3rem, 2.5vw, 1.6rem)",
                   color: "var(--forest)",
                   marginBottom: 16,
                 }}
               >
-                Quick Start
+                Free Assessments!
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <Link
                   href="#protein-calculator"
                   style={{
                     display: "block",
-                    padding: "12px 16px",
+                    padding: "18px 24px",
                     background: "var(--stone)",
                     border: "1px solid var(--stone-dark)",
                     borderRadius: 8,
                     textDecoration: "none",
-                    fontSize: "0.92rem",
+                    fontSize: "1.1rem",
                     fontWeight: 500,
                     color: "var(--charcoal)",
                     transition: "background 0.15s",
@@ -153,12 +153,12 @@ export default function Home() {
                   href="#sleep-assessment"
                   style={{
                     display: "block",
-                    padding: "12px 16px",
+                    padding: "18px 24px",
                     background: "var(--stone)",
                     border: "1px solid var(--stone-dark)",
                     borderRadius: 8,
                     textDecoration: "none",
-                    fontSize: "0.92rem",
+                    fontSize: "1.1rem",
                     fontWeight: 500,
                     color: "var(--charcoal)",
                     transition: "background 0.15s",
@@ -173,15 +173,15 @@ export default function Home() {
                   😴 Assess Your Sleep Quality
                 </Link>
                 <Link
-                  href="/exercise"
+                  href="#newsletter"
                   style={{
                     display: "block",
-                    padding: "12px 16px",
+                    padding: "18px 24px",
                     background: "var(--stone)",
                     border: "1px solid var(--stone-dark)",
                     borderRadius: 8,
                     textDecoration: "none",
-                    fontSize: "0.92rem",
+                    fontSize: "1.1rem",
                     fontWeight: 500,
                     color: "var(--charcoal)",
                     transition: "background 0.15s",
@@ -193,7 +193,7 @@ export default function Home() {
                     (e.currentTarget.style.background = "var(--stone)")
                   }
                 >
-                  💪 Explore Exercise Science
+                  📧 Subscribe to Newsletter
                 </Link>
               </div>
             </div>
@@ -293,6 +293,7 @@ export default function Home() {
 
       {/* ── Newsletter ── */}
       <section
+        id="newsletter"
         style={{
           backgroundColor: "var(--forest)",
           padding: "72px 24px",

@@ -79,13 +79,13 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", overflow: "visible" }}>
           <Image
             src="/cascadia-fitness-logo.svg"
             alt="Cascadia Fitness"
-            width={240}
-            height={89}
-            style={{ height: "auto", width: 240 }}
+            width={260}
+            height={96}
+            style={{ height: "auto", width: 260 }}
             priority
           />
         </Link>
