@@ -4,9 +4,9 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const topicsColumns = [
+const dropdownGroups = [
   {
-    heading: "Body",
+    label: "Body",
     links: [
       { href: "/exercise", label: "Exercise" },
       { href: "/nutrition", label: "Nutrition" },
@@ -14,7 +14,7 @@ const topicsColumns = [
     ],
   },
   {
-    heading: "Mind",
+    label: "Mind",
     links: [
       { href: "/cognitive-health", label: "Cognitive Health" },
       { href: "/behavior-change", label: "Behavior Change" },
@@ -22,9 +22,9 @@ const topicsColumns = [
     ],
   },
   {
-    heading: "Longevity",
+    label: "Longevity",
     links: [
-      { href: "/longevity", label: "Longevity" },
+      { href: "/longevity", label: "Longevity Science" },
       { href: "/healthy-aging", label: "Healthy Aging" },
       { href: "/coaching", label: "Coaching" },
       { href: "/digital-health", label: "Digital Health" },
@@ -32,7 +32,7 @@ const topicsColumns = [
   },
 ];
 
-const allTopicLinks = topicsColumns.flatMap((col) => col.links);
+const allTopicLinks = dropdownGroups.flatMap((g) => g.links);
 
 const topNavLinks = [
   { href: "/coaches", label: "Find a Coach" },
@@ -42,16 +42,16 @@ const topNavLinks = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  function openDropdown() {
+  function handleMouseEnter(label: string) {
     if (closeTimer.current) clearTimeout(closeTimer.current);
-    setDropdownOpen(true);
+    setOpenDropdown(label);
   }
 
-  function scheduleClose() {
-    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  function handleMouseLeave() {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 120);
   }
 
   return (
@@ -83,9 +83,9 @@ export default function Navbar() {
           <Image
             src="/cascadia-fitness-logo.svg"
             alt="Cascadia Fitness"
-            width={200}
-            height={74}
-            style={{ height: "auto", width: 200 }}
+            width={240}
+            height={89}
+            style={{ height: "auto", width: 240 }}
             priority
           />
         </Link>
@@ -93,114 +93,110 @@ export default function Navbar() {
         {/* Desktop links */}
         <div
           className="desktop-nav"
-          style={{ display: "flex", alignItems: "center", gap: 28, marginLeft: 24 }}
+          style={{ display: "flex", alignItems: "center", gap: 18, marginLeft: 24 }}
         >
-          {/* Topics dropdown */}
-          <div
-            style={{ position: "relative" }}
-            onMouseEnter={openDropdown}
-            onMouseLeave={scheduleClose}
-          >
-            <button
-              type="button"
-              onClick={() => setDropdownOpen((v) => !v)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                fontFamily: "var(--font-body)",
-                fontSize: "0.9rem",
-                fontWeight: 500,
-                color: dropdownOpen ? "var(--forest)" : "var(--charcoal)",
-                padding: 0,
-              }}
+          {/* Three dropdowns */}
+          {dropdownGroups.map((group) => (
+            <div
+              key={group.label}
+              style={{ position: "relative" }}
+              onMouseEnter={() => handleMouseEnter(group.label)}
+              onMouseLeave={handleMouseLeave}
             >
-              Topics
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
+              <button
+                type="button"
+                onClick={() =>
+                  setOpenDropdown(openDropdown === group.label ? null : group.label)
+                }
                 style={{
-                  transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
-                  transition: "transform 0.15s",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  fontFamily: "var(--font-body)",
+                  fontSize: "0.9rem",
+                  fontWeight: 500,
+                  color:
+                    openDropdown === group.label ? "var(--forest)" : "var(--charcoal)",
+                  padding: 0,
                 }}
               >
-                <path d="M2 4l4 4 4-4" />
-              </svg>
-            </button>
+                {group.label}
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  style={{
+                    transform:
+                      openDropdown === group.label
+                        ? "rotate(180deg)"
+                        : "rotate(0deg)",
+                    transition: "transform 0.15s",
+                  }}
+                >
+                  <path d="M2 4l4 4 4-4" />
+                </svg>
+              </button>
 
-            {dropdownOpen && (
-              <div
-                onMouseEnter={openDropdown}
-                onMouseLeave={scheduleClose}
-                style={{
-                  position: "absolute",
-                  top: "calc(100% + 12px)",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  backgroundColor: "white",
-                  boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                  borderRadius: 8,
-                  border: "1px solid var(--stone-dark)",
-                  padding: "20px 24px",
-                  display: "grid",
-                  gridTemplateColumns: "repeat(3, 160px)",
-                  gap: "0 24px",
-                  zIndex: 200,
-                  minWidth: 520,
-                }}
-              >
-                {topicsColumns.map((col) => (
-                  <div key={col.heading}>
-                    <p
+              {openDropdown === group.label && (
+                <div
+                  onMouseEnter={() => handleMouseEnter(group.label)}
+                  onMouseLeave={handleMouseLeave}
+                  style={{
+                    position: "absolute",
+                    top: "calc(100% + 12px)",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    backgroundColor: "white",
+                    boxShadow: "0 4px 16px rgba(0,0,0,0.10)",
+                    borderRadius: 8,
+                    border: "1px solid var(--stone-dark)",
+                    padding: 8,
+                    minWidth: 200,
+                    zIndex: 200,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
+                  }}
+                >
+                  {group.links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setOpenDropdown(null)}
                       style={{
-                        fontSize: "0.72rem",
-                        fontWeight: 700,
-                        textTransform: "uppercase",
-                        letterSpacing: "0.08em",
-                        color: "var(--sage)",
-                        marginBottom: 10,
+                        textDecoration: "none",
+                        fontSize: "0.88rem",
+                        fontWeight: 500,
+                        color: "var(--charcoal)",
+                        padding: "7px 12px",
+                        borderRadius: 6,
+                        transition: "background 0.12s, color 0.12s",
+                        display: "block",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = "var(--stone)";
+                        e.currentTarget.style.color = "var(--forest)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.color = "var(--charcoal)";
                       }}
                     >
-                      {col.heading}
-                    </p>
-                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-                      {col.links.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          onClick={() => setDropdownOpen(false)}
-                          style={{
-                            textDecoration: "none",
-                            fontSize: "0.88rem",
-                            fontWeight: 500,
-                            color: "var(--charcoal)",
-                            padding: "4px 0",
-                            transition: "color 0.15s",
-                          }}
-                          onMouseEnter={(e) =>
-                            (e.currentTarget.style.color = "var(--forest)")
-                          }
-                          onMouseLeave={(e) =>
-                            (e.currentTarget.style.color = "var(--charcoal)")
-                          }
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
 
+          {/* Top-level links */}
           {topNavLinks.map((link) => (
             <Link
               key={link.href}

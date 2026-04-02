@@ -50,7 +50,7 @@ export default function Home() {
                 lineHeight: 1.2,
               }}
             >
-              Your health decisions deserve better than headlines.
+              Your decisions deserve better than headlines.
             </h1>
             <p
               style={{
@@ -61,9 +61,8 @@ export default function Home() {
                 marginBottom: 36,
               }}
             >
-              We read the research so you don&apos;t have to. 231 peer-reviewed
-              studies on nutrition, exercise, sleep, and behavior change —
-              translated into clear, actionable guidance.
+              200+ peer-reviewed studies on nutrition, exercise, sleep, and
+              behavior change. Distilled into clear, actionable guidance.
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
               <Link
