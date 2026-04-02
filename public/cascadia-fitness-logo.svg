@@ -1,0 +1,25 @@
+<svg width="380" height="140" viewBox="0 0 380 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="leaf1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="leaf2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <radialGradient id="center">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="50" cy="70" rx="35" ry="15" fill="url(#leaf1)" opacity="0.6" transform="rotate(-30 50 70)"/>
+  <ellipse cx="50" cy="70" rx="35" ry="15" fill="url(#leaf2)" opacity="0.6" transform="rotate(30 50 70)"/>
+  <ellipse cx="50" cy="70" rx="35" ry="15" fill="url(#leaf1)" opacity="0.7" transform="rotate(90 50 70)"/>
+  <circle cx="50" cy="70" r="8" fill="url(#center)"/>
+  <text x="95" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" letter-spacing="-1">
+    <tspan fill="#0f172a">Cascadia</tspan>
+    <tspan fill="#059669">Fitness</tspan>
+    <tspan fill="#78716c" font-size="28">.Org</tspan>
+  </text>
+</svg>

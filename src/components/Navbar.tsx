@@ -1,25 +1,58 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const navLinks = [
-  { href: "/nutrition", label: "Nutrition" },
-  { href: "/exercise", label: "Exercise" },
-  { href: "/coaching", label: "Coaching" },
-  { href: "/cognitive-health", label: "Cognitive Health" },
-  { href: "/weight-management", label: "Weight Management" },
-  { href: "/longevity", label: "Longevity" },
-  { href: "/healthy-aging", label: "Healthy Aging" },
-  { href: "/behavior-change", label: "Behavior Change" },
-  { href: "/digital-health", label: "Digital Health" },
+const topicsColumns = [
+  {
+    heading: "Body",
+    links: [
+      { href: "/exercise", label: "Exercise" },
+      { href: "/nutrition", label: "Nutrition" },
+      { href: "/weight-management", label: "Weight Management" },
+    ],
+  },
+  {
+    heading: "Mind",
+    links: [
+      { href: "/cognitive-health", label: "Cognitive Health" },
+      { href: "/behavior-change", label: "Behavior Change" },
+      { href: "/sleep", label: "Sleep" },
+    ],
+  },
+  {
+    heading: "Longevity",
+    links: [
+      { href: "/longevity", label: "Longevity" },
+      { href: "/healthy-aging", label: "Healthy Aging" },
+      { href: "/coaching", label: "Coaching" },
+      { href: "/digital-health", label: "Digital Health" },
+    ],
+  },
+];
+
+const allTopicLinks = topicsColumns.flatMap((col) => col.links);
+
+const topNavLinks = [
   { href: "/coaches", label: "Find a Coach" },
   { href: "/blog", label: "Research Blog" },
   { href: "/methodology", label: "Methodology" },
 ];
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  function openDropdown() {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setDropdownOpen(true);
+  }
+
+  function scheduleClose() {
+    closeTimer.current = setTimeout(() => setDropdownOpen(false), 120);
+  }
 
   return (
     <nav
@@ -46,47 +79,129 @@ export default function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link
-          href="/"
-          style={{
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "baseline",
-            gap: 8,
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "1.35rem",
-              color: "var(--forest)",
-            }}
-          >
-            CascadiaFitness
-          </span>
-          <span
-            style={{
-              fontSize: "0.75rem",
-              color: "var(--sage)",
-              fontWeight: 500,
-              letterSpacing: "0.04em",
-              textTransform: "uppercase",
-            }}
-          >
-            .org
-          </span>
+        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+          <Image
+            src="/cascadia-fitness-logo.svg"
+            alt="Cascadia Fitness"
+            width={200}
+            height={74}
+            style={{ height: "auto", width: 200 }}
+            priority
+          />
         </Link>
 
         {/* Desktop links */}
         <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 28,
-          }}
           className="desktop-nav"
+          style={{ display: "flex", alignItems: "center", gap: 28, marginLeft: 24 }}
         >
-          {navLinks.map((link) => (
+          {/* Topics dropdown */}
+          <div
+            style={{ position: "relative" }}
+            onMouseEnter={openDropdown}
+            onMouseLeave={scheduleClose}
+          >
+            <button
+              type="button"
+              onClick={() => setDropdownOpen((v) => !v)}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+                fontFamily: "var(--font-body)",
+                fontSize: "0.9rem",
+                fontWeight: 500,
+                color: dropdownOpen ? "var(--forest)" : "var(--charcoal)",
+                padding: 0,
+              }}
+            >
+              Topics
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                style={{
+                  transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.15s",
+                }}
+              >
+                <path d="M2 4l4 4 4-4" />
+              </svg>
+            </button>
+
+            {dropdownOpen && (
+              <div
+                onMouseEnter={openDropdown}
+                onMouseLeave={scheduleClose}
+                style={{
+                  position: "absolute",
+                  top: "calc(100% + 12px)",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  backgroundColor: "white",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                  borderRadius: 8,
+                  border: "1px solid var(--stone-dark)",
+                  padding: "20px 24px",
+                  display: "grid",
+                  gridTemplateColumns: "repeat(3, 160px)",
+                  gap: "0 24px",
+                  zIndex: 200,
+                  minWidth: 520,
+                }}
+              >
+                {topicsColumns.map((col) => (
+                  <div key={col.heading}>
+                    <p
+                      style={{
+                        fontSize: "0.72rem",
+                        fontWeight: 700,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                        color: "var(--sage)",
+                        marginBottom: 10,
+                      }}
+                    >
+                      {col.heading}
+                    </p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+                      {col.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          onClick={() => setDropdownOpen(false)}
+                          style={{
+                            textDecoration: "none",
+                            fontSize: "0.88rem",
+                            fontWeight: 500,
+                            color: "var(--charcoal)",
+                            padding: "4px 0",
+                            transition: "color 0.15s",
+                          }}
+                          onMouseEnter={(e) =>
+                            (e.currentTarget.style.color = "var(--forest)")
+                          }
+                          onMouseLeave={(e) =>
+                            (e.currentTarget.style.color = "var(--charcoal)")
+                          }
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {topNavLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -96,12 +211,8 @@ export default function Navbar() {
                 fontWeight: 500,
                 color: "var(--charcoal)",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--forest)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--charcoal)")
-              }
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--forest)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--charcoal)")}
             >
               {link.label}
             </Link>
@@ -110,7 +221,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          onClick={() => setOpen(!open)}
+          onClick={() => setMobileOpen(!mobileOpen)}
           className="mobile-menu-btn"
           aria-label="Toggle menu"
           style={{
@@ -129,7 +240,7 @@ export default function Navbar() {
             stroke="var(--forest)"
             strokeWidth="2"
           >
-            {open ? (
+            {mobileOpen ? (
               <path d="M6 6l12 12M6 18L18 6" />
             ) : (
               <path d="M3 6h18M3 12h18M3 18h18" />
@@ -139,7 +250,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile drawer */}
-      {open && (
+      {mobileOpen && (
         <div
           className="mobile-drawer"
           style={{
@@ -152,18 +263,42 @@ export default function Navbar() {
             padding: "32px 24px",
             display: "flex",
             flexDirection: "column",
-            gap: 24,
+            gap: 20,
             zIndex: 99,
+            overflowY: "auto",
           }}
         >
-          {navLinks.map((link) => (
+          {allTopicLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              onClick={() => setOpen(false)}
+              onClick={() => setMobileOpen(false)}
               style={{
                 textDecoration: "none",
-                fontSize: "1.2rem",
+                fontSize: "1.1rem",
+                fontWeight: 500,
+                color: "var(--forest)",
+                fontFamily: "var(--font-display)",
+              }}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <div
+            style={{
+              height: 1,
+              background: "var(--stone-dark)",
+              margin: "4px 0",
+            }}
+          />
+          {topNavLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                textDecoration: "none",
+                fontSize: "1.1rem",
                 fontWeight: 500,
                 color: "var(--forest)",
                 fontFamily: "var(--font-display)",
