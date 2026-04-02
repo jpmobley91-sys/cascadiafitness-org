@@ -35,6 +35,7 @@ const dropdownGroups = [
 const allTopicLinks = dropdownGroups.flatMap((g) => g.links);
 
 const topNavLinks = [
+  { href: "/faq", label: "FAQ" },
   { href: "/coaches", label: "Find a Coach" },
   { href: "/blog", label: "Research Blog" },
   { href: "/methodology", label: "Methodology" },
