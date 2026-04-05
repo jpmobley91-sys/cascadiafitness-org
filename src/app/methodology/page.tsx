@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export const metadata: Metadata = {
   title: "Research Methodology — CascadiaFitness.org",
@@ -651,56 +652,7 @@ export default function MethodologyPage() {
           >
             Subscribe to the weekly digest.
           </p>
-          <form
-            style={{
-              display: "flex",
-              gap: 10,
-              maxWidth: 460,
-              margin: "0 auto",
-            }}
-          >
-            <input
-              type="email"
-              placeholder="Your email address"
-              aria-label="Email address"
-              style={{
-                flex: 1,
-                padding: "14px 16px",
-                border: "1px solid var(--stone-dark)",
-                borderRadius: 8,
-                fontSize: "0.95rem",
-                fontFamily: "var(--font-body)",
-                outline: "none",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: "14px 24px",
-                backgroundColor: "var(--forest)",
-                color: "#fff",
-                border: "none",
-                borderRadius: 8,
-                fontSize: "0.95rem",
-                fontWeight: 600,
-                fontFamily: "var(--font-body)",
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Subscribe
-            </button>
-          </form>
-          <p
-            style={{
-              fontSize: "0.78rem",
-              color: "var(--sage)",
-              marginTop: 16,
-              fontFamily: "var(--font-body)",
-            }}
-          >
-            No spam. Unsubscribe anytime.
-          </p>
+          <NewsletterForm variant="inline" />
         </div>
       </section>
     </>

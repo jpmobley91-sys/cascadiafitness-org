@@ -1,13 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import ProteinCalculator from "@/components/ProteinCalculator";
 import SleepAssessment from "@/components/SleepAssessment";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Home() {
-  const [email, setEmail] = useState("");
-
   return (
     <>
       {/* ── Hero ── */}
@@ -321,59 +319,7 @@ export default function Home() {
             New research across 10 themes. Plain language. Every week. Join 0
             evidence-based thinkers.
           </p>
-          <form
-            style={{
-              display: "flex",
-              gap: 10,
-              maxWidth: 440,
-              margin: "0 auto 16px",
-            }}
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              placeholder="you@example.com"
-              aria-label="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              style={{
-                flex: 1,
-                padding: "14px 16px",
-                borderRadius: 6,
-                border: "none",
-                fontSize: "0.95rem",
-                fontFamily: "var(--font-body)",
-                outline: "none",
-                backgroundColor: "white",
-                color: "var(--charcoal)",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: "14px 20px",
-                backgroundColor: "transparent",
-                color: "var(--warm-white)",
-                border: "2px solid var(--warm-white)",
-                borderRadius: 6,
-                fontWeight: 600,
-                fontSize: "0.95rem",
-                cursor: "pointer",
-                fontFamily: "var(--font-body)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Subscribe
-            </button>
-          </form>
-          <p
-            style={{
-              fontSize: "0.78rem",
-              color: "var(--sage)",
-            }}
-          >
-            Free forever. No spam. Unsubscribe anytime.
-          </p>
+          <NewsletterForm variant="hero" />
         </div>
       </section>
 

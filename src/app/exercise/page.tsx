@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export const metadata: Metadata = {
   title: "Exercise & Physical Activity — CascadiaFitness.org",
@@ -135,53 +136,6 @@ function StudyGrid({ studies }: { studies: StudyCitation[] }) {
   );
 }
 
-/* ── Newsletter Form (client island) ───────────────────────────────────────── */
-
-function NewsletterForm() {
-  return (
-    <form
-      style={{
-        display: "flex",
-        gap: 10,
-        maxWidth: 440,
-        margin: "0 auto",
-      }}
-    >
-      <input
-        type="email"
-        placeholder="you@example.com"
-        aria-label="Email address"
-        style={{
-          flex: 1,
-          padding: "14px 16px",
-          borderRadius: 6,
-          border: "1px solid var(--stone-dark)",
-          fontSize: "0.95rem",
-          fontFamily: "var(--font-body)",
-          outline: "none",
-          backgroundColor: "white",
-        }}
-      />
-      <button
-        type="submit"
-        style={{
-          padding: "14px 24px",
-          backgroundColor: "var(--forest)",
-          color: "var(--warm-white)",
-          border: "none",
-          borderRadius: 6,
-          fontWeight: 600,
-          fontSize: "0.95rem",
-          cursor: "pointer",
-          fontFamily: "var(--font-body)",
-          whiteSpace: "nowrap",
-        }}
-      >
-        Subscribe
-      </button>
-    </form>
-  );
-}
 
 /* ── Page ───────────────────────────────────────────────────────────────────── */
 
@@ -492,15 +446,6 @@ export default function ExercisePage() {
             week.
           </p>
           <NewsletterForm />
-          <p
-            style={{
-              fontSize: "0.78rem",
-              color: "var(--sage)",
-              marginTop: 12,
-            }}
-          >
-            Free forever. No spam. Unsubscribe anytime.
-          </p>
         </div>
       </section>
     </>

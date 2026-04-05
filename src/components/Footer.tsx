@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export default function Footer() {
   return (
@@ -95,52 +96,7 @@ export default function Footer() {
             One email per week. The latest peer-reviewed findings on nutrition,
             exercise, and healthy aging — translated into plain language.
           </p>
-          <form
-            style={{ display: "flex", gap: 8 }}
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              placeholder="Your email"
-              aria-label="Email address for newsletter"
-              style={{
-                flex: 1,
-                padding: "10px 14px",
-                borderRadius: 6,
-                border: "1px solid var(--forest-light)",
-                backgroundColor: "rgba(255,255,255,0.08)",
-                color: "white",
-                fontSize: "0.9rem",
-                fontFamily: "var(--font-body)",
-                outline: "none",
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: "10px 20px",
-                backgroundColor: "var(--river)",
-                color: "white",
-                border: "none",
-                borderRadius: 6,
-                fontWeight: 600,
-                fontSize: "0.88rem",
-                cursor: "pointer",
-                fontFamily: "var(--font-body)",
-              }}
-            >
-              Subscribe
-            </button>
-          </form>
-          <p
-            style={{
-              fontSize: "0.72rem",
-              marginTop: 8,
-              color: "var(--sage)",
-            }}
-          >
-            No spam. Unsubscribe anytime.
-          </p>
+          <NewsletterForm variant="footer" />
         </div>
       </div>
 
