@@ -18,7 +18,7 @@ const dropdownGroups = [
     links: [
       { href: "/cognitive-health", label: "Cognitive Health" },
       { href: "/behavior-change", label: "Behavior Change" },
-      { href: "/sleep", label: "Sleep" },
+      { href: "/sleep", label: "Sleep & Recovery" },
     ],
   },
   {
