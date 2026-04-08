@@ -26,19 +26,24 @@ const dropdownGroups = [
     links: [
       { href: "/longevity", label: "Longevity Science" },
       { href: "/healthy-aging", label: "Healthy Aging" },
-      { href: "/coaching", label: "Coaching" },
       { href: "/digital-health", label: "Digital Health" },
     ],
   },
 ];
 
-const allTopicLinks = dropdownGroups.flatMap((g) => g.links);
+const faqLink = { href: "/faq", label: "FAQ" };
 
 const topNavLinks = [
-  { href: "/faq", label: "FAQ" },
+  { href: "/coaching", label: "Why Coaching?" },
   { href: "/coaches", label: "Find a Coach" },
   { href: "/blog", label: "Research Blog" },
   { href: "/methodology", label: "Methodology" },
+];
+
+const allMobileLinks = [
+  faqLink,
+  ...dropdownGroups.flatMap((g) => g.links),
+  ...topNavLinks,
 ];
 
 export default function Navbar() {
@@ -96,6 +101,21 @@ export default function Navbar() {
           className="desktop-nav"
           style={{ display: "flex", alignItems: "center", gap: 18, marginLeft: 24 }}
         >
+          {/* FAQ top-level link */}
+          <Link
+            href={faqLink.href}
+            style={{
+              textDecoration: "none",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+              color: "var(--charcoal)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--forest)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--charcoal)")}
+          >
+            {faqLink.label}
+          </Link>
+
           {/* Three dropdowns */}
           {dropdownGroups.map((group) => (
             <div
@@ -265,30 +285,7 @@ export default function Navbar() {
             overflowY: "auto",
           }}
         >
-          {allTopicLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              style={{
-                textDecoration: "none",
-                fontSize: "1.1rem",
-                fontWeight: 500,
-                color: "var(--forest)",
-                fontFamily: "var(--font-display)",
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <div
-            style={{
-              height: 1,
-              background: "var(--stone-dark)",
-              margin: "4px 0",
-            }}
-          />
-          {topNavLinks.map((link) => (
+          {allMobileLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
