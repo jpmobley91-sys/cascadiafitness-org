@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
           marginBottom: "2rem",
         }}
       >
-        Effective: March 2026 · Last updated: March 2026
+        Effective: March 2026 · Last updated: April 2026
       </p>
 
       {/* Who We Are */}
@@ -134,10 +134,16 @@ export default function PrivacyPolicyPage() {
         browser add-on.
       </p>
       <p style={bodyStyle}>
-        <span style={boldStyle}>Newsletter Provider</span> — We use a
-        third-party email service to manage newsletter subscriptions. Your email
-        address is shared with this provider solely for the purpose of delivering
-        the newsletter. (Provider name to be added once selected.)
+        <span style={boldStyle}>Kit (formerly ConvertKit)</span> — Manages
+        newsletter subscriptions and delivers emails. Your email address is
+        shared with Kit solely for the purpose of delivering the newsletter.
+        Governed by Kit&apos;s privacy policy at kit.com/privacy.
+      </p>
+      <p style={bodyStyle}>
+        <span style={boldStyle}>Buy Me a Coffee</span> — Accepts voluntary
+        support contributions. If you choose to make a contribution, your
+        payment is processed by Buy Me a Coffee and is subject to their privacy
+        policy. We do not collect or store your payment information.
       </p>
 
       {/* Coach Directory */}
