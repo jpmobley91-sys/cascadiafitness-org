@@ -127,9 +127,22 @@ export default function Footer() {
         >
           Privacy Policy
         </Link>
-        <span>
-          Educational resource only — not medical advice.
-        </span>
+        <span>Educational resource only — not medical advice.</span>
+        <a
+          href="https://www.buymeacoffee.com/jpmobley"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "var(--bark)",
+            textDecoration: "none",
+            fontSize: "0.78rem",
+            transition: "color 0.15s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--forest)")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--bark)")}
+        >
+          ☕ Support This Project
+        </a>
       </div>
     </footer>
   );

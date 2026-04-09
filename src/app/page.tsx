@@ -8,6 +8,50 @@ import NewsletterForm from "@/components/NewsletterForm";
 export default function Home() {
   return (
     <>
+      {/* ── Newsletter Digest Bar ── */}
+      <section style={{ backgroundColor: "var(--forest)", padding: "48px 24px" }}>
+        <div
+          style={{
+            maxWidth: 1120,
+            margin: "0 auto",
+            display: "flex",
+            gap: 40,
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Left: 60% */}
+          <div style={{ flex: "3 1 300px" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+                color: "white",
+                marginBottom: 10,
+              }}
+            >
+              Your Health & Wellness Bulletin
+            </h2>
+            <p
+              style={{
+                fontSize: "0.97rem",
+                color: "rgba(255,255,255,0.8)",
+                lineHeight: 1.6,
+                margin: 0,
+              }}
+            >
+              New findings across nutrition, exercise, sleep, and longevity —
+              summarized in plain language, every week.
+            </p>
+          </div>
+
+          {/* Right: 40% */}
+          <div style={{ flex: "2 1 260px" }}>
+            <NewsletterForm variant="bar" />
+          </div>
+        </div>
+      </section>
+
       {/* ── Hero ── */}
       <section
         style={{
@@ -104,13 +148,15 @@ export default function Home() {
           </div>
 
           {/* Right: 40% — Quick Start card */}
-          <div style={{ flex: "2 1 260px" }}>
+          <div style={{ flex: "2 1 260px", display: "flex", alignItems: "center" }}>
             <div
               style={{
                 background: "var(--warm-white)",
                 border: "1.5px solid var(--stone-dark)",
                 borderRadius: 12,
                 padding: 32,
+                width: "100%",
+                textAlign: "center",
               }}
             >
               <h2
@@ -121,7 +167,7 @@ export default function Home() {
                   marginBottom: 16,
                 }}
               >
-                Free Assessments!
+                Your Free Toolkit!
               </h2>
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <Link
@@ -137,6 +183,7 @@ export default function Home() {
                     fontWeight: 500,
                     color: "var(--charcoal)",
                     transition: "background 0.15s",
+                    textAlign: "center",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.background = "var(--mist)")
@@ -160,6 +207,7 @@ export default function Home() {
                     fontWeight: 500,
                     color: "var(--charcoal)",
                     transition: "background 0.15s",
+                    textAlign: "center",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.background = "var(--mist)")
@@ -170,75 +218,8 @@ export default function Home() {
                 >
                   😴 Assess Your Sleep Quality
                 </Link>
-                <Link
-                  href="#newsletter"
-                  style={{
-                    display: "block",
-                    padding: "18px 24px",
-                    background: "var(--stone)",
-                    border: "1px solid var(--stone-dark)",
-                    borderRadius: 8,
-                    textDecoration: "none",
-                    fontSize: "1.1rem",
-                    fontWeight: 500,
-                    color: "var(--charcoal)",
-                    transition: "background 0.15s",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.background = "var(--mist)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.background = "var(--stone)")
-                  }
-                >
-                  📧 Subscribe to Newsletter
-                </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Newsletter Digest Bar ── */}
-      <section style={{ backgroundColor: "var(--forest)", padding: "48px 24px" }}>
-        <div
-          style={{
-            maxWidth: 1120,
-            margin: "0 auto",
-            display: "flex",
-            gap: 40,
-            alignItems: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          {/* Left: 60% */}
-          <div style={{ flex: "3 1 300px" }}>
-            <h2
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
-                color: "white",
-                marginBottom: 10,
-              }}
-            >
-              The Weekly Research Digest
-            </h2>
-            <p
-              style={{
-                fontSize: "0.97rem",
-                color: "rgba(255,255,255,0.8)",
-                lineHeight: 1.6,
-                margin: 0,
-              }}
-            >
-              New findings across nutrition, exercise, sleep, and longevity —
-              summarized in plain language, every week.
-            </p>
-          </div>
-
-          {/* Right: 40% */}
-          <div style={{ flex: "2 1 260px" }}>
-            <NewsletterForm variant="bar" />
           </div>
         </div>
       </section>
