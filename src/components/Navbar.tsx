@@ -234,6 +234,23 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+
+          {/* Support link */}
+          <a
+            href="https://www.buymeacoffee.com/jpmobley"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              textDecoration: "none",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+              color: "var(--bark)",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--forest)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--bark)")}
+          >
+            ☕ Support
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -301,6 +318,21 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <a
+            href="https://www.buymeacoffee.com/jpmobley"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileOpen(false)}
+            style={{
+              textDecoration: "none",
+              fontSize: "1.1rem",
+              fontWeight: 500,
+              color: "var(--bark)",
+              fontFamily: "var(--font-display)",
+            }}
+          >
+            ☕ Support
+          </a>
         </div>
       )}
 
