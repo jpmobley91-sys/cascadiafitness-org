@@ -199,6 +199,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Newsletter Digest Bar ── */}
+      <section style={{ backgroundColor: "var(--forest)", padding: "48px 24px" }}>
+        <div
+          style={{
+            maxWidth: 1120,
+            margin: "0 auto",
+            display: "flex",
+            gap: 40,
+            alignItems: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Left: 60% */}
+          <div style={{ flex: "3 1 300px" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)",
+                color: "white",
+                marginBottom: 10,
+              }}
+            >
+              The Weekly Research Digest
+            </h2>
+            <p
+              style={{
+                fontSize: "0.97rem",
+                color: "rgba(255,255,255,0.8)",
+                lineHeight: 1.6,
+                margin: 0,
+              }}
+            >
+              New findings across nutrition, exercise, sleep, and longevity —
+              summarized in plain language, every week.
+            </p>
+          </div>
+
+          {/* Right: 40% */}
+          <div style={{ flex: "2 1 260px" }}>
+            <NewsletterForm variant="bar" />
+          </div>
+        </div>
+      </section>
+
       {/* ── Tools Section ── */}
       <section id="tools" style={{ padding: "80px 24px", background: "white" }}>
         <div style={{ maxWidth: 1120, margin: "0 auto" }}>

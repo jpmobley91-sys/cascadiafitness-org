@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const FORM_ID = 9291145;
 
-type Variant = "inline" | "footer" | "hero";
+type Variant = "inline" | "footer" | "hero" | "bar";
 type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function NewsletterForm({
@@ -14,6 +14,7 @@ export default function NewsletterForm({
 }) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<FormState>("idle");
+  const [btnHovered, setBtnHovered] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -40,6 +41,72 @@ export default function NewsletterForm({
     } catch {
       setState("error");
     }
+  }
+
+  if (state === "success" && variant === "bar") {
+    return (
+      <p style={{ fontSize: "1rem", color: "white", fontFamily: "var(--font-body)" }}>
+        ✓ You&apos;re subscribed! Check your inbox to confirm.
+      </p>
+    );
+  }
+
+  if (variant === "bar") {
+    return (
+      <>
+        <form
+          style={{ display: "flex", gap: 10, width: "100%" }}
+          onSubmit={handleSubmit}
+        >
+          <input
+            type="email"
+            placeholder="you@example.com"
+            aria-label="Email address for newsletter"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={{
+              flex: 1,
+              padding: "14px 16px",
+              borderRadius: 6,
+              border: "none",
+              fontSize: "0.95rem",
+              fontFamily: "var(--font-body)",
+              outline: "none",
+              backgroundColor: "white",
+              color: "var(--charcoal)",
+              minWidth: 0,
+            }}
+          />
+          <button
+            type="submit"
+            disabled={state === "submitting"}
+            onMouseEnter={() => setBtnHovered(true)}
+            onMouseLeave={() => setBtnHovered(false)}
+            style={{
+              padding: "14px 24px",
+              backgroundColor: btnHovered ? "transparent" : "white",
+              color: btnHovered ? "white" : "var(--forest)",
+              border: btnHovered ? "2px solid white" : "2px solid white",
+              borderRadius: 6,
+              fontWeight: 600,
+              fontSize: "0.95rem",
+              cursor: state === "submitting" ? "not-allowed" : "pointer",
+              fontFamily: "var(--font-body)",
+              whiteSpace: "nowrap",
+              transition: "background-color 0.15s, color 0.15s",
+            }}
+          >
+            {state === "submitting" ? "Subscribing..." : "Subscribe"}
+          </button>
+        </form>
+        {state === "error" && (
+          <p style={{ fontSize: "0.82rem", color: "#fca5a5", marginTop: 8 }}>
+            Something went wrong. Please try again.
+          </p>
+        )}
+      </>
+    );
   }
 
   if (state === "success") {
