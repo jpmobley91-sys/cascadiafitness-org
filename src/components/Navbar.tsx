@@ -36,6 +36,7 @@ const faqLink = { href: "/faq", label: "FAQ" };
 const topNavLinks = [
   { href: "/coaching", label: "Why Coaching?" },
   { href: "/coaches", label: "Find a Coach" },
+  { href: "/connect", label: "Connect" },
   { href: "/blog", label: "Research Blog" },
   { href: "/methodology", label: "Methodology" },
 ];

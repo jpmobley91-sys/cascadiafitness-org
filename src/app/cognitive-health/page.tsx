@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 
 export const metadata: Metadata = {
@@ -400,6 +401,50 @@ export default function CognitiveHealthPage() {
               <p style={{ ...bodyTextStyle, marginBottom: 0 }}>{a}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── Connect CTA ── */}
+      <section style={{ backgroundColor: "var(--forest)", padding: "72px 24px" }}>
+        <div style={{ maxWidth: 600, margin: "0 auto", textAlign: "center" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              color: "white",
+              marginBottom: 16,
+            }}
+          >
+            Ready to take the next step?
+          </h2>
+          <p
+            style={{
+              fontFamily: "var(--font-body)",
+              fontSize: "1rem",
+              color: "var(--sage-light)",
+              marginBottom: 32,
+              lineHeight: 1.6,
+            }}
+          >
+            Connect with a certified health and wellness coach who can put this
+            research into practice with you.
+          </p>
+          <Link
+            href="/connect"
+            style={{
+              display: "inline-block",
+              backgroundColor: "var(--bark)",
+              color: "white",
+              textDecoration: "none",
+              fontFamily: "var(--font-body)",
+              fontWeight: 600,
+              fontSize: "1rem",
+              padding: "14px 32px",
+              borderRadius: 6,
+            }}
+          >
+            Connect with a Coach →
+          </Link>
         </div>
       </section>
 

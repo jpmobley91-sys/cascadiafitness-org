@@ -77,6 +77,42 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Connect CTA */}
+        <div>
+          <h4
+            style={{
+              fontSize: "0.8rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              color: "var(--sage)",
+              marginBottom: 16,
+              fontFamily: "var(--font-body)",
+              fontWeight: 600,
+            }}
+          >
+            Work With a Coach
+          </h4>
+          <p style={{ fontSize: "0.88rem", marginBottom: 16, lineHeight: 1.5 }}>
+            Ready to put the research into practice? Connect with a certified
+            health and wellness coach.
+          </p>
+          <Link
+            href="/connect"
+            style={{
+              display: "inline-block",
+              backgroundColor: "var(--bark)",
+              color: "white",
+              textDecoration: "none",
+              fontSize: "0.9rem",
+              fontWeight: 600,
+              padding: "10px 22px",
+              borderRadius: 6,
+            }}
+          >
+            Connect with a Coach →
+          </Link>
+        </div>
+
         {/* Newsletter signup */}
         <div>
           <h4
