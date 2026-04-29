@@ -163,6 +163,16 @@ export default function Footer() {
         >
           Privacy Policy
         </Link>
+        <Link
+          href="/refunds"
+          style={{
+            color: "var(--sage)",
+            textDecoration: "none",
+            fontSize: "0.78rem",
+          }}
+        >
+          Refunds
+        </Link>
         <span>Educational resource only — not medical advice.</span>
         <a
           href="https://www.buymeacoffee.com/jpmobley"

@@ -315,6 +315,10 @@ const themes: Theme[] = [
         q: "Can AI replace a human coach?",
         a: "No. AI tools can automate data collection and extend a coach's reach between sessions. But sustained behavior change requires human accountability, empathy, and adaptive support that current AI cannot provide.",
       },
+      {
+        q: "What is your refund policy?",
+        a: "We offer a 14-day satisfaction guarantee on all digital products. If Protein After 50 doesn't deliver what we promised, reply to your receipt within 14 days and we get you a full refund — no questions asked. See our full refund policy at /refunds.",
+      },
     ],
   },
 ];
